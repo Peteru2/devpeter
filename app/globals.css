@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-bg: #faf8f3;
+  --color-ink: #16181d;
+  --color-muted: #5b6070;
+  --color-line: rgb(22 24 29 / 0.12);
+  --color-accent: #2747c8;
+  --color-panel: #f2efe8;
+  --color-tint: rgb(39 71 200 / 0.07);
+  --color-grid: rgb(39 71 200 / 0.06);
+  --color-live: #2b8a3e;
+  --color-danger: #b42318;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
+:root {
+  color-scheme: light;
+}
+
+/* Dark when the visitor picked it… */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #0f1115;
+  --color-ink: #ecedef;
+  --color-muted: #9aa0ac;
+  --color-line: rgb(255 255 255 / 0.11);
+  --color-accent: #8ea2ff;
+  --color-panel: #161920;
+  --color-tint: rgb(142 162 255 / 0.1);
+  --color-grid: rgb(142 162 255 / 0.07);
+  --color-live: #69db7c;
+  --color-danger: #ff8a80;
+}
+
+/* …or when their device is dark and they haven't picked light */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-bg: #0f1115;
+    --color-ink: #ecedef;
+    --color-muted: #9aa0ac;
+    --color-line: rgb(255 255 255 / 0.11);
+    --color-accent: #8ea2ff;
+    --color-panel: #161920;
+    --color-tint: rgb(142 162 255 / 0.1);
+    --color-grid: rgb(142 162 255 / 0.07);
+    --color-live: #69db7c;
+    --color-danger: #ff8a80;
+  }
+}
+/* Page container used by every section */
+@utility wrap {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Faint blueprint grid behind architecture diagrams */
+@utility grid-paper {
+  background-image:
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+::selection {
+  background: rgb(39 71 200 / 0.2);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

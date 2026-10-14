@@ -1,0 +1,80 @@
+import { site } from "@/data/site";
+import { stackGroups } from "@/data/stack";
+import { FactList } from "@/components/ui/FactList";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { TextLink } from "@/components/ui/Links";
+import { Portrait } from "@/components/ui/Photo";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+
+const facts = [
+  { label: "Also known as", value: site.alternateNames.join(" · ") },
+  { label: "Based in", value: `${site.location} (WAT)` },
+  { label: "Experience", value: "3+ years building production web software" },
+  { label: "Education", value: "B.Sc. Computer Science" },
+  { label: "Focus", value: site.focusAreas.join(" · ") },
+  { label: "Open to", value: site.openTo },
+];
+
+export function About() {
+  return (
+    <section id="about" aria-labelledby="about-title" className="wrap pb-28">
+      <SectionHeader id="about-title" index="02" label="About" title={`About ${site.name}`} />
+
+      <div className="mt-14 grid gap-12 lg:grid-cols-[300px_minmax(0,1fr)] lg:gap-16">
+        <FadeIn>
+          <Portrait />
+          <p className="mt-4 font-mono text-xs text-muted">aka {site.handle}</p>
+        </FadeIn>
+
+        <div>
+          <FadeIn className="max-w-[640px] space-y-4 text-[17px] leading-relaxed text-muted sm:text-lg">
+            <p>
+              <strong className="font-medium text-ink">{site.name}</strong>, known online as{" "}
+              <strong className="font-medium text-ink">{site.handle}</strong>, is a full-stack and frontend engineer
+              based in {site.location}. With 3+ years of building production web software and a B.Sc. in Computer
+              Science, he builds products where reliability matters: payments, exams, and platforms people depend on
+              every day.
+            </p>
+            <p>
+              He is the solo developer behind <strong className="font-medium text-ink">Buydair</strong>, a
+              payments-first wallet for airtime, data, electricity and TV subscriptions, funded through Paystack with
+              webhook verification, automatic recovery of stuck purchases and audited refunds, and paired with free
+              courses that teach people to recognise scams.
+            </p>
+            <p>
+              He also built an <strong className="font-medium text-ink">offline computer-based testing system</strong>{" "}
+              used by more than 1,000 students, and the website and admin platform for{" "}
+              <a
+                href="https://twcglobal.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink underline decoration-line underline-offset-4 hover:decoration-ink"
+              >
+                True Worshippers Church
+              </a>
+              , where members stream and download sermons.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.08}>
+            <FactList items={facts} className="mt-10" />
+          </FadeIn>
+
+          <FadeIn delay={0.12} className="mt-10">
+            <h3 className="font-mono text-xs tracking-[0.06em] text-muted">TOOLBOX</h3>
+            <FactList
+              className="mt-3"
+              items={stackGroups.map((g) => ({ label: g.label, value: g.items.join(" · ") }))}
+            />
+          </FadeIn>
+
+          <FadeIn delay={0.16} className="mt-8">
+            <TextLink href={site.cvUrl} icon="download" download>
+              Download full CV
+            </TextLink>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+  );
+}
