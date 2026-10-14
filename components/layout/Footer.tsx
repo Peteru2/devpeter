@@ -1,9 +1,9 @@
 import { navItems, site } from "@/data/site";
+import { CurrentYear } from "@/components/ui/CurrentYear";
 
 const socialLabels: Record<string, string> = { github: "GitHub", linkedin: "LinkedIn", x: "X" };
 
 export function Footer() {
-  const year = new Date().getFullYear();
   const socials = Object.entries(site.socials).filter(([, url]) => !url.includes("TODO"));
 
   return (
@@ -52,7 +52,7 @@ export function Footer() {
 
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6 font-mono text-xs text-muted">
           <p>
-            © {year} {site.name}
+                      © <CurrentYear /> {site.name}
           </p>
           <a href="#top" className="inline-flex min-h-11 items-center hover:text-ink">
             Back to top ↑
