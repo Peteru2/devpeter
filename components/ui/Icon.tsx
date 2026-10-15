@@ -6,6 +6,7 @@ const paths = {
   plus: <path d="M8 3v10M3 8h10" />,
   menu: <path d="M2 5h12M2 11h12" />,
   close: <path d="M4 4l8 8M12 4l-8 8" />,
+  chat: <path d="M2.5 3.5h11v7.5H7l-3.5 2.5V11H2.5z" />,
     sun: (
     <>
       <circle cx="8" cy="8" r="3" />

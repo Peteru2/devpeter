@@ -92,7 +92,7 @@ function CbtDiagram() {
       <Line d="M70 196 V150 H450 V196" delay={0.25} />
       <Line d="M197 150 V196" delay={0.25} />
       <Line d="M323 150 V196" delay={0.25} />
-      <Box x={150} y={22} w={220} h={60} title="Exam server" detail="Node.js · one local machine" emphasis />
+        <Box x={150} y={22} w={220} h={60} title="Exam server" detail="Node.js · PostgreSQL" emphasis />
       <Box x={20} y={196} w={100} h={52} title="PC 1" detail="student" />
       <Box x={147} y={196} w={100} h={52} title="PC 2" detail="student" />
       <Box x={273} y={196} w={100} h={52} title="PC 3" detail="student" />

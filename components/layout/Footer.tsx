@@ -18,10 +18,10 @@ export function Footer() {
           </div>
 
           <nav aria-label="Footer">
-            <ul className="flex flex-wrap gap-x-7">
+                        <ul className="flex flex-wrap gap-x-7">
               {navItems.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href} className="inline-flex min-h-11 items-center text-sm text-muted hover:text-ink">
+                <li key={item.id}>
+                  <a href={`/#${item.id}`} className="inline-flex min-h-11 items-center text-sm text-muted hover:text-ink">
                     {item.label}
                   </a>
                 </li>

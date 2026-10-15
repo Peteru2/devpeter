@@ -2,12 +2,13 @@ import { site } from "@/data/site";
 
 export function PersonSchema() {
   const sameAs = Object.values(site.socials).filter((url) => !url.includes("TODO"));
-  const data = {
+   const data = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: site.name,
     alternateName: site.alternateNames,
-    jobTitle: site.role,
+    jobTitle: site.currentRole.title,
+    worksFor: { "@type": "Organization", name: site.currentRole.org },
     address: { "@type": "PostalAddress", addressLocality: site.city, addressCountry: "NG" },
     knowsAbout: site.focusAreas,
     ...(sameAs.length ? { sameAs } : {}),

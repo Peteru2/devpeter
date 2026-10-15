@@ -6,14 +6,24 @@ export const site = {
   role: "Full-Stack & Frontend Engineer",
   city: "Ogbomoso",
   location: "Ogbomoso, Nigeria",
-  url: "", // your domain once you have one
+  url: "https://mydevpeter.netlify.app/", // your live URL or domain
   email: "polalekan526@gmail.com",
   availableForWork: true,
   cvUrl: "/cv/olatunji-peter-cv.pdf",
   photo: "/images/peter.jpg", // e.g. "/images/peter.jpg"
+  experience: "4+ years",
+  currentRole: {
+    title: "Full-Stack Engineer & Educator",
+    org: "JAARC",
+    location: "Ogbomoso",
+  },
+  teaching: {
+    students: "10+",
+    subjects: ["HTML, CSS & JavaScript", "React", "AI", "digital literacy"],
+  },
   socials: {
     github: "https://github.com/Peteru2",
-    linkedin: "https://www.linkedin.com/in/TODO",
+    linkedin: "https://www.linkedin.com/in/peter-olatunji-5ab9841bb/",
     x: "https://x.com/Devpeter5",
   },
   focusAreas: [
@@ -28,8 +38,8 @@ export const site = {
 } as const;
 
 export const navItems = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", id: "work" },
+  { label: "About", id: "about" },
+  { label: "Services", id: "services" },
+  { label: "Contact", id: "contact" },
 ] as const;

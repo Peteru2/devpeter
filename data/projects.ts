@@ -60,13 +60,14 @@ export const projects: Project[] = [
     category: "EdTech · System",
     summary:
       "A computer-based testing system that runs entirely over a local network, so exams go ahead without the internet, and students can pull their report sheets afterwards.",
-    facts: [
+      facts: [
+      { label: "Built for", value: "JAARC, Ogbomoso" },
       { label: "Offline", value: "One server, many machines, no internet" },
       { label: "Results", value: "Students access their own report sheets" },
     ],
     stat: { value: "1,000+", label: "students" },
     role: "Full-stack engineer",
-    stack: ["React", "Node.js", "Framer Motion"],
+    stack: ["React", "Node.js", "PostgreSQL", "Framer Motion"],
     tier: "list",
     architecture: "cbt",
     links: {},
@@ -85,6 +86,10 @@ export const projects: Project[] = [
     ],
     role: "Solo full-stack developer",
     stack: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Cloudinary"],
+    fullStack: [
+      "React", "TypeScript", "Tailwind CSS", "React Router", "React Hook Form", "Axios",
+      "Node.js", "Express", "MongoDB", "JWT", "bcrypt", "Cloudinary",
+    ],
     tier: "list",
     images: { cover: "/images/projects/twc.png" },
     links: { live: "https://twcglobal.org" },
@@ -105,17 +110,18 @@ export const projects: Project[] = [
     links: { live: "https://bfe-three.vercel.app" },
     hasCaseStudy: false,
   },
-  {
+    {
     slug: "jaarc",
     name: "JAARC Website",
-    oneLiner: "Organisation website with a partner support form",
+    oneLiner: "Organisation website with an investor and partner support form",
     category: "Organisation · Website",
     summary:
-      "An organisation website, including a support form that lets investors and partners reach out directly.",
+      "The website for JAARC in Ogbomoso, including a support form that lets investors and partners reach out directly.",
     facts: [],
-    role: "Full-stack engineer",
-    stack: [],
-    tier: "archive",
+    role: "Full-Stack Engineer",
+    stack: ["React", "Vite", "Node.js", "Motion", "PostgreSQL"],
+    tier: "list",
+    // images: { cover: "/images/projects/jaarc.png" },
     links: { live: "http://jaarc.org" },
     hasCaseStudy: false,
   },

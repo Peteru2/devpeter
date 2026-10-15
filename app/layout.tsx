@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Geist, Geist_Mono } from "next/font/google";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { site } from "@/data/site";
+import { AskPeter } from "@/components/ui/AskPeter";
 import "./globals.css";
 
 const serif = Instrument_Serif({
@@ -13,6 +17,7 @@ const sans = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swa
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
 
 export const metadata: Metadata = {
+   metadataBase: new URL(site.url || "http://localhost:3000"),
   title: {
     default: "Olatunji Peter (devpeter) — Full-Stack & Frontend Engineer",
     template: "%s · devpeter",
@@ -28,7 +33,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-    return (
+  return (
     <html
       lang="en"
       className={`${serif.variable} ${sans.variable} ${mono.variable}`}
@@ -41,7 +46,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           }}
         />
       </head>
-      <body className="min-h-screen bg-bg font-sans text-ink antialiased">{children}</body>
+      <body id="top" className="min-h-screen bg-bg font-sans text-ink antialiased">
+        <Navbar />
+        {children}
+        <Footer />
+        <AskPeter />
+      </body>
     </html>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { navItems, site } from "@/data/site";
 import { Icon } from "@/components/ui/Icon";
@@ -20,10 +21,10 @@ export function Navbar() {
 
   useEffect(() => {
     const sections = navItems
-      .map((item) => document.querySelector<HTMLElement>(item.href))
+      .map((item) => document.getElementById(item.id))
       .filter((el): el is HTMLElement => el !== null);
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setActive(`#${e.target.id}`)),
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
       { rootMargin: "-45% 0px -50% 0px" }
     );
     sections.forEach((s) => observer.observe(s));
@@ -49,7 +50,6 @@ export function Navbar() {
         solid ? "border-line" : "border-transparent"
       }`}
     >
-      {/* Blurred background on its own layer, so it doesn't trap the mobile menu */}
       <div
         aria-hidden="true"
         className={`pointer-events-none absolute inset-0 -z-10 bg-bg/85 backdrop-blur-md transition-opacity duration-300 ${
@@ -58,21 +58,20 @@ export function Navbar() {
       />
 
       <div className="wrap flex h-[72px] items-center justify-between gap-6">
-        <a href="#top" className="flex items-baseline gap-2.5" aria-label={`${site.name}, back to top`}>
+        <Link href="/" className="flex items-baseline gap-2.5" aria-label={`${site.name}, home`}>
           <span className="font-serif text-2xl leading-none">{site.name}</span>
           <span className="font-mono text-xs text-muted">{site.handle}</span>
-        </a>
+        </Link>
 
-        {/* Desktop links */}
         <nav aria-label="Main" className="hidden md:block">
           <ul className="flex items-center gap-8">
             {navItems.map((item) => (
-              <li key={item.href}>
+              <li key={item.id}>
                 <a
-                  href={item.href}
-                  aria-current={active === item.href ? "location" : undefined}
+                  href={`/#${item.id}`}
+                  aria-current={active === item.id ? "location" : undefined}
                   className={`inline-flex min-h-11 items-center text-sm transition-colors hover:text-ink ${
-                    active === item.href ? "text-ink" : "text-muted"
+                    active === item.id ? "text-ink" : "text-muted"
                   }`}
                 >
                   {item.label}
@@ -82,7 +81,6 @@ export function Navbar() {
           </ul>
         </nav>
 
-        {/* Desktop actions */}
         <div className="hidden items-center gap-5 md:flex">
           {site.availableForWork && (
             <span className="inline-flex items-center gap-2 font-mono text-xs text-muted">
@@ -92,14 +90,13 @@ export function Navbar() {
           )}
           <ThemeToggle />
           <a
-            href="#contact"
+            href="/#contact"
             className="inline-flex min-h-10 items-center rounded-full border border-line px-4 text-sm font-medium transition-colors hover:border-ink"
           >
             Let’s talk
           </a>
         </div>
 
-        {/* Mobile actions */}
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
           <button
@@ -115,7 +112,6 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -129,8 +125,8 @@ export function Navbar() {
             <nav aria-label="Mobile" className="wrap py-6">
               <ul>
                 {navItems.map((item) => (
-                  <li key={item.href} className="border-b border-line">
-                    <a href={item.href} onClick={() => setOpen(false)} className="block py-5 font-serif text-4xl">
+                  <li key={item.id} className="border-b border-line">
+                    <a href={`/#${item.id}`} onClick={() => setOpen(false)} className="block py-5 font-serif text-4xl">
                       {item.label}
                     </a>
                   </li>
@@ -143,7 +139,7 @@ export function Navbar() {
                 </p>
               )}
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setOpen(false)}
                 className="mt-6 flex min-h-12 w-fit items-center rounded-full bg-ink px-6 text-[15px] font-medium text-bg"
               >
