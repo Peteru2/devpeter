@@ -24,14 +24,24 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26, color: "#5b6070" }}>
-          <div style={{ width: 12, height: 12, borderRadius: 999, background: "#2b8a3e" }} />
+          <div style={{ width: 12,  display: "flex", height: 12, borderRadius: 999, background: "#2b8a3e" }} />
           Available for roles and freelance
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-          <div style={{ fontSize: 76, lineHeight: 1.05, letterSpacing: "-0.02em", maxWidth: 980 }}>
-            I build software people rely on: payments, exams, and the platforms in between.
-          </div>
+         <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    fontSize: 76,
+                    lineHeight: 1.05,
+                    letterSpacing: "-0.02em",
+                    maxWidth: 980,
+                }}
+                >
+                I build software people rely on: payments, exams, and the platforms in between.
+                </div>
+         
         </div>
 
         <div
@@ -44,12 +54,12 @@ export default function OpengraphImage() {
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            <div style={{ fontSize: 36, fontWeight: 600 }}>{site.name}</div>
-            <div style={{ fontSize: 24, color: "#5b6070" }}>
+            <div style={{ fontSize: 36, display: "flex", fontWeight: 600 }}>{site.name}</div>
+            <div style={{ fontSize: 24, display: "flex", color: "#5b6070" }}>
               {site.handle} · {site.role}
             </div>
           </div>
-          <div style={{ fontSize: 24, color: "#2747c8" }}>{site.location}</div>
+          <div style={{ fontSize: 24, display: "flex", color: "#2747c8" }}>{site.location}</div>
         </div>
       </div>
     ),
