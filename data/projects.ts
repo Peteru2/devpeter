@@ -121,7 +121,7 @@ export const projects: Project[] = [
     role: "Full-Stack Engineer",
     stack: ["React", "Vite", "Node.js", "Motion", "PostgreSQL"],
     tier: "list",
-    // images: { cover: "/images/projects/jaarc.png" },
+    images: { cover: "/images/projects/jaarc.png" },
     links: { live: "http://jaarc.org" },
     hasCaseStudy: false,
   },
