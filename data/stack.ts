@@ -8,12 +8,12 @@ export const stackGroups: StackGroup[] = [
   {
     label: "Frontend",
     note: "interfaces people enjoy",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "TanStack Query", "Vite"],
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "TanStack Query","Material UI", "Zustand", "Vite"],
   },
   {
     label: "Backend",
     note: "APIs that stay up",
-    items: ["Node.js", "Express", "REST APIs", "Socket.IO", "Zod", "JWT auth"],
+    items: ["Node.js", "Express", "REST APIs", "Socket.IO", "Zod", "JWT auth", "O auth"],
   },
   {
     label: "Data & payments",
