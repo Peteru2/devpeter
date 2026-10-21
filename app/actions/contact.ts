@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { z } from "zod";
+import { contactNotification } from "@/lib/emails/contactNotification";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your name"),
@@ -56,23 +57,15 @@ export async function sendContact(_prev: ContactState, formData: FormData): Prom
 
   const d = parsed.data;
   const resend = new Resend(apiKey);
+  const mail = contactNotification(d);
 
   const { error } = await resend.emails.send({
     from: process.env.CONTACT_FROM_EMAIL ?? "Portfolio <onboarding@resend.dev>",
     to,
     replyTo: d.email,
-    subject: `${reasonLabels[d.reason]} from ${d.name}`,
-    text: [
-      `Name: ${d.name}`,
-      `Email: ${d.email}`,
-      `Reaching out about: ${reasonLabels[d.reason]}`,
-      d.service ? `Service: ${d.service}` : null,
-      d.budget ? `Budget: ${d.budget}` : null,
-      "",
-      d.message,
-    ]
-      .filter((line) => line !== null)
-      .join("\n"),
+    subject: mail.subject,
+    html: mail.html,
+    text: mail.text,
   });
 
   if (error) {
