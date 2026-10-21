@@ -4,6 +4,8 @@ import { caseStudies } from "@/data/caseStudies";
 import { services } from "@/data/services";
 import { principles } from "@/data/principles";
 import { stackGroups } from "@/data/stack";
+import { softSkills } from "@/data/skills";
+import { nowItems, nowUpdated } from "@/data/now";
 
 const filled = (v: string) => !!v && !v.includes("TODO");
 
@@ -74,6 +76,21 @@ function buildKnowledge(): string {
   );
 
   out.push(["# HOW PETER WORKS", ...principles.map((p) => `${p.title} ${p.body}`)].join("\n"));
+
+    out.push(
+    [
+      "# SOFT SKILLS",
+      ...softSkills.map((g) => `${g.title}: ${g.items.join("; ")}.${g.proof ? ` Proof: ${g.proof}` : ""}`),
+    ].join("\n")
+  );
+
+  const statusLabel = { now: "Working on now", next: "Up next", shipped: "Recently shipped" } as const;
+  out.push(
+    [
+      `# WHAT PETER IS WORKING ON (updated ${nowUpdated})`,
+      ...nowItems.map((i) => `${statusLabel[i.status]} (${i.tag}): ${i.title}${i.note ? `, ${i.note}` : ""}`),
+    ].join("\n")
+  );
 
   return out.join("\n\n");
 }

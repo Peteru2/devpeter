@@ -9,7 +9,7 @@ export function Services() {
     <section id="services" aria-labelledby="services-title" className="wrap pb-28">
       <SectionHeader
         id="services-title"
-        index="04"
+        index="03"
         label="Services"
         title="Ways we can work together."
         action={<p className="max-w-[300px] text-[15px] text-muted">Open to freelance projects as well as full-time roles.</p>}

@@ -1,8 +1,7 @@
 import { PersonSchema } from "@/components/layout/PersonSchema";
 import { Hero } from "@/components/sections/Hero";
-import { SelectedWork } from "@/components/sections/SelectedWork";
+import { Explore } from "@/components/home/Explore";
 import { About } from "@/components/sections/About";
-import { Principles } from "@/components/sections/Principles";
 import { Services } from "@/components/sections/Services";
 import { Contact } from "@/components/sections/Contact";
 
@@ -12,9 +11,8 @@ export default function Home() {
       <PersonSchema />
       <main>
         <Hero />
-        <SelectedWork />
+        <Explore />
         <About />
-        <Principles />
         <Services />
         <Contact />
       </main>

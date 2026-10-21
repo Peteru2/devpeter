@@ -4,8 +4,7 @@ import { Button, TextLink } from "@/components/ui/Links";
 import { Avatar } from "@/components/ui/Photo";
 
 const facts = [
-  { label: "NOW", value: `${site.currentRole.title} at ${site.currentRole.org}` },
-  
+ { label: "NOW", value: `${site.currentRole.title} at ${site.currentRole.org}`, href: "/?tab=now#work" },
   { label: "EXPERIENCE", value: `${site.experience} shipping production software` },
   { label: "FOCUS", value: "Fintech & payments · EdTech" },
   { label: "PROOF", value: "Live products, 1,000+ students served" },
@@ -53,7 +52,15 @@ export function Hero() {
           {facts.map((f) => (
             <div key={f.label} className="pr-6">
               <dt className="font-mono text-[11.5px] tracking-[0.06em] text-muted">{f.label}</dt>
-              <dd className="mt-2 text-[15px]">{f.value}</dd>
+                           <dd className="mt-2 text-[15px]">
+                {f.href ? (
+                  <a href={f.href} className="underline decoration-line underline-offset-4 hover:decoration-ink">
+                    {f.value}
+                  </a>
+                ) : (
+                  f.value
+                )}
+              </dd>
             </div>
           ))}
         </dl>

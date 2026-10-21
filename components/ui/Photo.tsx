@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { site } from "@/data/site";
 
-export function Avatar({ size = 64 }: { size?: number }) {
+export function Avatar({ size = 92 }: { size?: number }) {
   return (
     <span
       className="relative inline-block shrink-0 overflow-hidden rounded-full border border-line bg-panel"

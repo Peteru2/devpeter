@@ -1,5 +1,4 @@
 import { site } from "@/data/site";
-import { stackGroups } from "@/data/stack";
 import { experience } from "@/data/experience";
 import { FactList } from "@/components/ui/FactList";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -100,13 +99,7 @@ export function About() {
             </ol>
           </FadeIn>
 
-          <FadeIn delay={0.12} className="mt-10">
-            <h3 className="font-mono text-xs tracking-[0.06em] text-muted">TOOLBOX</h3>
-            <FactList
-              className="mt-3"
-              items={stackGroups.map((g) => ({ label: g.label, value: g.items.join(" · ") }))}
-            />
-          </FadeIn>
+      
 
           <FadeIn delay={0.16} className="mt-8">
             <TextLink href={site.cvUrl} icon="download" download>

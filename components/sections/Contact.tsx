@@ -14,7 +14,7 @@ export function Contact() {
     <section id="contact" aria-labelledby="contact-title" className="wrap pb-28">
       <SectionHeader
         id="contact-title"
-        index="05"
+        index="04"
         label="Contact"
         title="Have something that needs to work in the real world?"
       />
