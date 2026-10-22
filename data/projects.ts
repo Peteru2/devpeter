@@ -50,7 +50,7 @@ export const projects: Project[] = [
     tier: "flagship",
     architecture: "buydair",
     images: { screens: ["/images/projects/buydair-home.png", "/images/projects/buydair-learn.png"] },
-    links: { live: "https://buydair.netlify.app" },
+    links: { live: "https://buydair.xyz" },
     hasCaseStudy: true,
   },
   {
