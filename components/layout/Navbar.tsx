@@ -88,7 +88,7 @@ export function Navbar() {
               Available
             </span>
           )}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <a
             href="/#contact"
             className="inline-flex min-h-10 items-center rounded-full border border-line px-4 text-sm font-medium transition-colors hover:border-ink"
@@ -98,7 +98,7 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}

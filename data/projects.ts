@@ -24,6 +24,7 @@ export interface Project {
     github?: { label: string; url: string }[];
   };
   hasCaseStudy: boolean;
+  status?: string
 }
 
 export const projects: Project[] = [
@@ -50,8 +51,10 @@ export const projects: Project[] = [
     tier: "flagship",
     architecture: "buydair",
     images: { screens: ["/images/projects/buydair-home.png", "/images/projects/buydair-learn.png"] },
-    links: { live: "https://buydair.xyz" },
+    links: { live: "" },
     hasCaseStudy: true,
+    status: "Launching Soon...."
+
   },
   {
     slug: "offline-cbt",

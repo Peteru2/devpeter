@@ -28,6 +28,7 @@ function RowVisual({ project }: { project: Project }) {
         {project.links.live && (
           <span className="truncate font-mono text-[11px] text-muted">{hostOf(project.links.live)}</span>
         )}
+      
       </div>
       <Shot
         src={project.images?.cover}

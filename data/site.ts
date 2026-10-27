@@ -6,8 +6,8 @@ export const site = {
   role: "Full-Stack & Frontend Engineer",
   city: "Ogbomoso",
   location: "Ogbomoso, Nigeria",
-  url: "https://mydevpeter.netlify.app/", // your live URL or domain
-  email: "polalekan526@gmail.com",
+  url: "https://devpeter.xyz/",
+  email: "hello@devpeter.xyz",
   availableForWork: true,
   cvUrl: "/cv/olatunji-peter-cv.pdf",
   photo: "/images/peter.jpg", // e.g. "/images/peter.jpg"

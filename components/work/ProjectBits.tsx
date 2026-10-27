@@ -16,6 +16,8 @@
 
     export function ProjectLinks({ project, className = "" }: { project: Project; className?: string }) {
     const { live, github } = project.links;
+
+
     if (!project.hasCaseStudy && !live && !github?.length) return null;
     return (
         <div className={`flex flex-wrap gap-x-6 gap-y-1 ${className}`}>
@@ -29,6 +31,15 @@
             {hostOf(live)}
             </TextLink>
         )}
+          
+          {project.status && (
+  <p className="inline-flex h-12 items-center gap-2.5 rounded-full bg-ink px-6 text-[15px] font-medium text-bg">
+    {project.status}
+  </p>
+)}
+
+           
+    
         {github?.map((g) => (
             <TextLink key={g.url} href={g.url} icon="external" external>
             {g.label} code
