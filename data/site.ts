@@ -9,8 +9,9 @@ export const site = {
   url: "https://devpeter.xyz/",
   email: "hello@devpeter.xyz",
   availableForWork: true,
-  cvUrl: "/cv/olatunji-peter-cv.pdf",
-  photo: "/images/peter.jpg", // e.g. "/images/peter.jpg"
+  cvUrl: "/cv/Olatunji_Peter_Software_Engineer_CV.pdf",
+  photo: "/images/peter.jpg", 
+
   experience: "4+ years",
   currentRole: {
     title: "Software Engineer & Educator",
