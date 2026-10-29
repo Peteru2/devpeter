@@ -16,6 +16,10 @@ const suggestions = [
 ];
 
 const MAX_CHARS = 500;
+
+/** Opens the assistant from anywhere on the page, optionally sending a question straight away. */
+export const openAskPeter = (question?: string) =>
+  window.dispatchEvent(new CustomEvent("ask-peter", { detail: { question } }));
 const MAX_QUESTIONS = 10;
 
 const textOf = (m: UIMessage) => m.parts.map((p) => (p.type === "text" ? p.text : "")).join("");
@@ -38,6 +42,21 @@ export function AskPeter() {
     sendMessage({ text: q.slice(0, MAX_CHARS) });
     setInput("");
   };
+
+  // Let other components open the assistant (e.g. the quick questions under the hero)
+  const askRef = useRef(ask);
+  useEffect(() => {
+    askRef.current = ask;
+  });
+  useEffect(() => {
+    const onAsk = (e: Event) => {
+      const q = (e as CustomEvent<{ question?: string }>).detail?.question;
+      setOpen(true);
+      if (q) askRef.current(q);
+    };
+    window.addEventListener("ask-peter", onAsk);
+    return () => window.removeEventListener("ask-peter", onAsk);
+  }, []);
 
   // Focus the input when opening; Escape closes
   useEffect(() => {

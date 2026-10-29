@@ -31,10 +31,10 @@ export function About() {
           <FadeIn className="max-w-[640px] space-y-4 text-[17px] leading-relaxed text-muted sm:text-lg">
             <p>
               <strong className="font-medium text-ink">{site.name}</strong>, known online as{" "}
-              <strong className="font-medium text-ink">{site.handle}</strong>, is a full-stack and frontend engineer
+              <strong className="font-medium text-ink">{site.handle}</strong>, is a software engineer
               based in {site.location}, currently {site.currentRole.title} at {site.currentRole.org}. With{" "}
-              {site.experience} of building production web software and a B.Sc. in Computer Science, he builds products
-              where reliability matters: payments, exams, and platforms people depend on every day.
+              {site.experience} of building production web software and a B.Sc. in Computer Science, he builds full-stack
+              products where reliability matters: payments, exams, and platforms people depend on every day.
             </p>
             <p>
               He is the solo developer behind <strong className="font-medium text-ink">Buydair</strong>, a

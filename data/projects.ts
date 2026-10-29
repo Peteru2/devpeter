@@ -53,7 +53,7 @@ export const projects: Project[] = [
     images: { screens: ["/images/projects/buydair-home.png", "/images/projects/buydair-learn.png"] },
     links: { live: "" },
     hasCaseStudy: true,
-    status: "Launching Soon...."
+    status: "Launching soon"
 
   },
   {
@@ -87,7 +87,7 @@ export const projects: Project[] = [
       { label: "Admin", value: "Role-based dashboard (admin / superadmin)" },
       { label: "Media", value: "Sermon and image uploads through Cloudinary" },
     ],
-    role: "Solo full-stack developer",
+    role: "Solo full-stack engineer",
     stack: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Cloudinary"],
     fullStack: [
       "React", "TypeScript", "Tailwind CSS", "React Router", "React Hook Form", "Axios",
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     summary:
       "The website for JAARC in Ogbomoso, including a support form that lets investors and partners reach out directly.",
     facts: [],
-    role: "Full-Stack Engineer",
+    role: "Full-stack engineer",
     stack: ["React", "Vite", "Node.js", "Motion", "PostgreSQL"],
     tier: "list",
     images: { cover: "/images/projects/jaarc.png" },

@@ -22,8 +22,8 @@ export const experience: Role[] = [
   },
   {
     when: "Before",
-    title: "Full-Stack Developer",
-    org: "Client projects",
+    title: "Software Engineer",
+    org: "Freelance & client projects",
     points: ["Designed, built and shipped websites and web apps for clients, from business sites to admin platforms"],
   },
 ];

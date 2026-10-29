@@ -3,7 +3,7 @@ export const site = {
   shortName: "Peter",
   handle: "devpeter",
   alternateNames: ["devpeter", "Peter Olatunji"],
-  role: "Full-Stack & Frontend Engineer",
+  role: "Software Engineer",
   city: "Ogbomoso",
   location: "Ogbomoso, Nigeria",
   url: "https://devpeter.xyz/",
@@ -13,7 +13,7 @@ export const site = {
   photo: "/images/peter.jpg", // e.g. "/images/peter.jpg"
   experience: "4+ years",
   currentRole: {
-    title: "Full-Stack Engineer & Educator",
+    title: "Software Engineer & Educator",
     org: "JAARC",
     location: "Ogbomoso",
   },
@@ -34,7 +34,7 @@ export const site = {
     "Software for real-world conditions",
   ],
   openTo:
-    "Full-stack and frontend engineering roles (remote, in Nigeria and across Africa) and freelance projects.",
+    "Software engineering roles (remote, in Nigeria and across Africa) and freelance projects.",
 } as const;
 
 export const navItems = [

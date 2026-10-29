@@ -19,15 +19,15 @@ const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", dis
 export const metadata: Metadata = {
    metadataBase: new URL(site.url || "http://localhost:3000"),
   title: {
-    default: "Olatunji Peter (devpeter) — Full-Stack & Frontend Engineer",
+    default: "Olatunji Peter (devpeter) — Software Engineer",
     template: "%s · devpeter",
   },
   description:
-    "Olatunji Peter (devpeter) is a full-stack and frontend engineer in Ogbomoso, Nigeria, building fintech and edtech products — payments, exams and platforms people depend on every day.",
+    "Olatunji Peter (devpeter) is a software engineer in Ogbomoso, Nigeria, building full-stack fintech and edtech products: payments, exams and platforms people depend on every day.",
   openGraph: {
-    title: "Olatunji Peter (devpeter) — Full-Stack & Frontend Engineer",
+    title: "Olatunji Peter (devpeter) — Software Engineer",
     description:
-      "Fintech and edtech products built for real conditions. Open to full-stack and frontend roles (remote, Nigeria, Africa) and freelance projects.",
+      "Fintech and edtech products built for real conditions. Open to software engineering roles (remote, Nigeria, Africa) and freelance projects.",
     type: "website",
   },
 };

@@ -23,13 +23,8 @@ export const principles: Principle[] = [
     icon: "code",
   },
   {
-    title: "I explain as well as I build.",
-    body: "Teaching developers every week has made me clear by habit: readable code, honest updates, and handovers your team can actually pick up.",
-    icon: "chat",
-  },
-    {
-    title: "No surprises.",
-    body: "Clear updates while I build, honest estimates, and documented handovers, so you always know where things stand and your team can pick the work up after me.",
+    title: "Clear by habit.",
+    body: "Teaching every week has made me explain as well as I build: readable code, honest estimates, regular updates and handovers your team can pick up without me.",
     icon: "chat",
   },
 ];

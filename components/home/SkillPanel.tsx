@@ -1,8 +1,22 @@
 import { stackGroups } from "@/data/stack";
 import { softSkills } from "@/data/skills";
-import { FactList } from "@/components/ui/FactList";
+import { projects } from "@/data/projects";
+import { StackExplorer, type StackUse } from "./StackExplorer";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { PanelHeading } from "./PanelHeading";
+
+// "MongoDB (Mongoose)" -> "mongodb", "JWT auth" -> "jwt", so project stacks and the toolbox line up
+const norm = (s: string) => s.toLowerCase().replace(/\s*\(.*\)/, "").replace(/\s+auth$/, "").trim();
+
+function stackUsage(): Record<string, StackUse[]> {
+  const usage: Record<string, StackUse[]> = {};
+  for (const item of stackGroups.flatMap((g) => g.items)) {
+    usage[item] = projects
+      .filter((p) => p.tier !== "archive" && (p.fullStack ?? p.stack).some((t) => norm(t) === norm(item)))
+      .map((p) => ({ name: p.name, slug: p.slug, hasCaseStudy: p.hasCaseStudy }));
+  }
+  return usage;
+}
 
 export function SkillsPanel() {
   return (
@@ -14,10 +28,9 @@ export function SkillsPanel() {
 
       <FadeIn className="mt-12">
         <h3 className="font-mono text-xs tracking-[0.06em] text-muted">TECHNICAL</h3>
-        <FactList
-          className="mt-3"
-          items={stackGroups.map((g) => ({ label: g.label, value: g.items.join(" · ") }))}
-        />
+        <div className="mt-3">
+          <StackExplorer groups={stackGroups.map((g) => ({ label: g.label, items: g.items }))} usage={stackUsage()} />
+        </div>
       </FadeIn>
 
       <div className="mt-14">

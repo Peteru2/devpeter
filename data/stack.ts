@@ -13,7 +13,7 @@ export const stackGroups: StackGroup[] = [
   {
     label: "Backend",
     note: "APIs that stay up",
-    items: ["Node.js", "Express", "REST APIs", "Socket.IO", "Zod", "JWT auth", "O auth"],
+    items: ["Node.js", "Express", "REST APIs", "Socket.IO", "Zod", "JWT auth", "OAuth"],
   },
   {
     label: "Data & payments",
