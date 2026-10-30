@@ -104,7 +104,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     outcome: [
-      "Buydair is live, handling real top-ups and real airtime, data, electricity and TV purchases.",
+      "Built and in pre-launch: transactions have already been processed through it, and public launch is waiting on Paystack’s business verification.",
       "Retries, double taps and dropped connections are safe by design: a payment is charged once, credited once, and every purchase ends in a clear, recoverable state.",
       "Built solo, covering product, design and engineering.",
     ],
@@ -224,6 +224,73 @@ export const caseStudies: Record<string, CaseStudy> = {
     outcome: [
       "Live at twcglobal.org and actively used by the church.",
       "Members stream and download sermons; the team publishes everything themselves.",
+      "Built solo, from database design to deployment.",
+    ],
+    
+  },
+    bfe: {
+    intro:
+      "An ordering platform for Becca’s Food & Events. Customers browse the menu, order for delivery or pickup, pay with Paystack and follow their order live, while the owner and staff run the menu, orders and delivery from an admin panel.",
+    problem: [
+      "A catering business needs to take orders online, get paid reliably and keep customers informed, without anyone spending the day answering “where is my food?”.",
+      "Several people work in the admin with different responsibilities, and past orders have to stay accurate even when the menu or prices change.",
+    ],
+    decisions: [
+      {
+        title: "Orders keep their own copy of the details",
+        risk: "If an order simply pointed at the menu, editing a dish or a price would silently rewrite old orders and receipts.",
+        solution: [
+          "Each order stores its own copy of the item names, prices and delivery fee at the time of purchase.",
+          "Later menu changes never alter past orders.",
+        ],
+      },
+      {
+        title: "Payment is confirmed two ways, through one function",
+        risk: "A customer can close the tab right after paying, or a webhook can arrive late. Either way, an order could sit unpaid or be confirmed twice.",
+        solution: [
+          "Checkout creates the order and starts the Paystack payment. Payment is confirmed by both the verify page and the Paystack webhook.",
+          "Both paths share one safe confirmation function, so an order is confirmed correctly whichever arrives first.",
+        ],
+      },
+      {
+        title: "Tracking without a login, and without guessable links",
+        risk: "Forcing customers to sign up just to check on a meal adds friction, but easy-to-guess order URLs would expose other people’s orders.",
+        solution: [
+          "Each order gets a readable number (#10001 and up) for conversations, and a separate private random tracking link.",
+          "The tracking page shows a live timeline and refreshes every 30 seconds. Signed-in customers also see their order history, matched by email.",
+        ],
+      },
+      {
+        title: "Admin access that changes instantly",
+        risk: "A staff member who is demoted or removed shouldn’t keep access until their session happens to expire.",
+        solution: [
+          "Admin sessions are JWTs in an httpOnly cookie, checked against the database on every request, so deactivation, role changes and “log out everywhere” take effect immediately.",
+          "Three roles (exactly one owner, plus managers and staff) are enforced on the server. Passwords are bcrypt-hashed, with a lockout after repeated failures.",
+        ],
+      },
+      {
+        title: "Passwordless sign-in for customers",
+        risk: "Passwords add friction to a food order, and they’re one more thing to leak or forget.",
+        solution: [
+          "Signing in is optional: a 6-digit code is emailed through Resend, works once, expires after 10 minutes and is rate-limited.",
+          "The session is a separate 30-day cookie, and guest checkout still works.",
+        ],
+      },
+    ],
+    extras: {
+      title: "What the team manages",
+      items: [
+        "Menu and products",
+        "Orders, from New to Delivered",
+        "Delivery areas and fees",
+        "Catering enquiries",
+        "Admin accounts and roles",
+        "New-order alerts every 15 seconds, with sound, a pop-up and a tab badge",
+      ],
+    },
+       outcome: [
+      "Deployed and working end to end: menu, Paystack checkout, live tracking and an admin panel. Payments run in Paystack’s test mode until the business is ready to go live.",
+      "Orders move through New, Processing, Ready, Out for delivery and Delivered (pickup skips delivery), with every change recorded in a status history.",
       "Built solo, from database design to deployment.",
     ],
   },

@@ -6,15 +6,15 @@ import type { Project } from "@/data/projects";
 import { FactList } from "@/components/ui/FactList";
 import { Icon } from "@/components/ui/Icon";
 import { Shot } from "@/components/ui/Shot";
-import { Architecture } from "./Architecture";
+import { ArchitectureView } from "@/components/three/Showcases";
 import { hostOf, ProjectLinks, StackLine } from "./ProjectBits";
 
 function RowVisual({ project }: { project: Project }) {
   if (!project.images?.cover && project.architecture) {
     return (
-      <div className="min-h-[300px] overflow-hidden rounded-2xl border border-line bg-panel">
-        <Architecture kind={project.architecture} />
-      </div>
+     <div className="h-[480px] overflow-hidden rounded-2xl border border-line bg-panel">
+  <ArchitectureView kind={project.architecture} />
+</div>
     );
   }
   return (

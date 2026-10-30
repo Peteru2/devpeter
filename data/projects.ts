@@ -44,7 +44,7 @@ export const projects: Project[] = [
     role: "Solo: product, design and engineering",
     stack: ["React", "Node.js", "Express", "MongoDB", "Paystack"],
     fullStack: [
-      "React", "Vite", "Tailwind CSS", "TanStack Query",
+      "React", "Typescript", "Vite", "Tailwind CSS", "TanStack Query",
       "Node.js", "Express", "MongoDB (Mongoose)", "Zod",
       "Paystack", "Socket.IO", "Netlify",
     ],
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     images: { screens: ["/images/projects/buydair-home.png", "/images/projects/buydair-learn.png"] },
     links: { live: "" },
     hasCaseStudy: true,
-    status: "Launching soon"
+    status: "Pre-launch · awaiting Paystack verification"
 
   },
   {
@@ -70,20 +70,22 @@ export const projects: Project[] = [
     ],
     stat: { value: "1,000+", label: "students" },
     role: "Full-stack engineer",
-    stack: ["React", "Node.js", "PostgreSQL", "Framer Motion"],
+    stack: ["React", "Typescript", "Node.js", "PostgreSQL", "Framer Motion"],
     tier: "list",
     architecture: "cbt",
     links: {},
     hasCaseStudy: true,
   },
-  {
+    {
     slug: "true-worshippers-church",
     name: "True Worshippers Church",
-    oneLiner: "Church website and admin platform",
+    oneLiner: "Church website with sermons, events and an admin platform",
     category: "Community · Platform",
     summary:
-      "A website and admin dashboard the church runs itself: events, sermons members stream and download, prayer requests, first-time visitors and a newsletter.",
+      "A website and admin dashboard the church runs itself. Members play or download sermons right on the site and see upcoming events, while the team publishes everything from an admin panel, alongside prayer requests, first-time visitors and a newsletter.",
     facts: [
+      { label: "Sermons", value: "Uploaded by the team; members play them in the browser or download them" },
+      { label: "Events", value: "Published and updated live from the admin panel" },
       { label: "Admin", value: "Role-based dashboard (admin / superadmin)" },
       { label: "Media", value: "Sermon and image uploads through Cloudinary" },
     ],
@@ -98,20 +100,27 @@ export const projects: Project[] = [
     links: { live: "https://twcglobal.org" },
     hasCaseStudy: true,
   },
-  {
+    {
     slug: "bfe",
     name: "Becca’s Food & Events",
-    oneLiner: "Ordering website for a catering business",
-    category: "Food & events · Website",
+    oneLiner: "Online ordering with live tracking and an admin panel for a catering business",
+    category: "Food & events · Web app",
     summary:
-      "Menu, ordering cart and services for a catering business, server-rendered for speed and search, with email notifications through Resend.",
-    facts: [],
-    role: "Full-stack engineer",
-    stack: ["Next.js", "Resend"],
+      "An ordering platform for a catering business. Customers order for delivery or pickup, pay with Paystack and follow their order live, while the team runs the menu, orders and delivery from a role-based admin panel.",
+    facts: [
+      {  label: "Payments", value: "Paystack checkout (test mode), confirmed by a verify page and a webhook"  },
+      { label: "Tracking", value: "Private tracking link with a live status timeline" },
+      { label: "Admin", value: "Owner, manager and staff roles, with new-order alerts" },
+      { label: "Sign-in", value: "Optional passwordless login by emailed code; guest checkout works" },
+    ],
+        role: "Solo full-stack engineer",
+    stack: ["Next.js","Typescript", "MongoDB", "Paystack", "Resend", "Cloudinary"],
+    fullStack: ["Next.js", "MongoDB (Mongoose)", "Paystack", "JWT", "bcrypt", "Resend", "Cloudinary", "Vercel"],
     tier: "list",
     images: { cover: "/images/projects/bfe.png" },
     links: { live: "https://bfe-three.vercel.app" },
-    hasCaseStudy: false,
+    hasCaseStudy: true,
+    status: "In testing · Paystack in test mode",
   },
     {
     slug: "jaarc",
@@ -122,7 +131,7 @@ export const projects: Project[] = [
       "The website for JAARC in Ogbomoso, including a support form that lets investors and partners reach out directly.",
     facts: [],
     role: "Full-stack engineer",
-    stack: ["React", "Vite", "Node.js", "Motion", "PostgreSQL"],
+    stack: ["React", "Typescript", "Vite", "Node.js", "Motion", "PostgreSQL"],
     tier: "list",
     images: { cover: "/images/projects/jaarc.png" },
     links: { live: "http://jaarc.org" },

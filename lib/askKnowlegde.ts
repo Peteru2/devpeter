@@ -50,7 +50,8 @@ function buildKnowledge(): string {
       `Stack: ${(p.fullStack ?? p.stack).join(", ")}.`,
       p.stat ? `Scale: ${p.stat.value} ${p.stat.label}.` : "",
       ...p.facts.map((f) => `${f.label}: ${f.value}.`),
-      p.links.live ? `Live at: ${p.links.live}` : "",
+      p.status ? `Status: ${p.status}.` : "",
+      p.links.live ? `Link: ${p.links.live}` : "",
       p.hasCaseStudy ? `Case study: /work/${p.slug}` : "",
     ];
     if (cs) {

@@ -12,12 +12,15 @@
     "@ai-sdk/google": "^2.0.103",
     "@ai-sdk/groq": "^2.0.58",
     "@ai-sdk/react": "^2.0.280",
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
     "ai": "^5.0.277",
     "motion": "^14.2.0",
     "next": "16.4.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "resend": "^6.33.0",
+    "three": "^0.186.1",
     "zod": "^4.6.7"
   },
   "devDependencies": {
@@ -25,6 +28,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.186.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
     "tailwindcss": "^4",

@@ -32,8 +32,9 @@
             </TextLink>
         )}
           
-          {project.status && (
-  <p className="inline-flex h-12 items-center gap-2.5 rounded-full bg-ink px-6 text-[15px] font-medium text-bg">
+         {project.status && (
+  <p className="inline-flex items-center gap-2 rounded-full border border-line px-3.5 py-1.5 font-mono text-xs text-muted">
+    <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
     {project.status}
   </p>
 )}

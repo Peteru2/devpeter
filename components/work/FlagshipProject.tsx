@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import type { Project } from "@/data/projects";
 import { FactList } from "@/components/ui/FactList";
 import { Shot } from "@/components/ui/Shot";
-import { Architecture } from "./Architecture";
+import { ArchitectureView, PhoneShowcase } from "@/components/three/Showcases";
 import { hostOf, ProjectLinks, StackLine } from "./ProjectBits";
 
 type View = "product" | "architecture";
@@ -80,24 +80,29 @@ export function FlagshipProject({ project, index }: { project: Project; index: n
               transition={{ duration: 0.25 }}
               className="absolute inset-0"
             >
-              {view === "architecture" && project.architecture ? (
-                <Architecture kind={project.architecture} />
-              ) : (
-                <>
-                  <Phone
-                    src={screens[0]}
-                    alt={`${project.name} home screen`}
-                    label={`${project.name} home screen`}
-                    className="left-[7%] top-8 sm:left-[12%] sm:top-10"
+            {view === "architecture" && project.architecture ? (
+                  <ArchitectureView kind={project.architecture} />
+                ) : (
+                  <PhoneShowcase
+                    screens={screens}
+                    fallback={
+                      <>
+                        <Phone
+                          src={screens[0]}
+                          alt={`${project.name} home screen`}
+                          label={`${project.name} home screen`}
+                          className="left-[7%] top-8 sm:left-[12%] sm:top-10"
+                        />
+                        <Phone
+                          src={screens[1]}
+                          alt={`${project.name} second screen`}
+                          label="Second screen"
+                          className="left-[52%] top-20 sm:top-24"
+                        />
+                      </>
+                    }
                   />
-                  <Phone
-                    src={screens[1]}
-                    alt={`${project.name} second screen`}
-                    label="Second screen"
-                    className="left-[52%] top-20 sm:top-24"
-                  />
-                </>
-              )}
+                )}
             </motion.div>
           </AnimatePresence>
         </div>

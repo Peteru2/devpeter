@@ -13,7 +13,7 @@ export const nowUpdated = "October 2026";
 
 export const nowItems: NowItem[] = [
   // Now
-  { status: "now", tag: "Project", title: "Buydair go-live", note: "Paystack activation and live payments" },
+ { status: "now", tag: "Project", title: "Buydair launch", note: "Waiting on Paystack verification, then live payments" },
   { status: "now", tag: "Project", title: "Offline CBT: autosave & terminal switching", href: "/work/offline-cbt" },
   { status: "now", tag: "Learning", title: "Python, and going deeper into AI" },
 

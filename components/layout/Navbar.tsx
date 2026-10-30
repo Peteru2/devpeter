@@ -88,7 +88,7 @@ export function Navbar() {
               Available
             </span>
           )}
-          {/* <ThemeToggle /> */}
+          <ThemeToggle />
           <a
             href="/#contact"
             className="inline-flex min-h-10 items-center rounded-full border border-line px-4 text-sm font-medium transition-colors hover:border-ink"
